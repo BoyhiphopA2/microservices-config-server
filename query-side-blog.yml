@@ -3,7 +3,6 @@ info:
     name: Blog service - Query Side
     description: Blog service - Query Side (CQRS)
 
-    
 management:
   security: 
     enabled: false
@@ -15,22 +14,23 @@ logging:
   level:
     root: INFO
     org.springframework: INFO
-    org.axonframework: DEBUG
+    org.axonframework: INFO
     com.idugalic: DEBUG
+    
+axon:
+  eventhandling:
+    processors:
+      default:
+        source: messageSourceBlog
 
 spring:
   application:
     exchange: blog.events.fanout.exchange
     queue: blog.view.event.stream
-    terminal: blog.axon.terminal
   rabbitmq:
     hostname: 127.0.0.1
     username: guest
     password: guest
-  data:
-    mongodb:
-      uri: ${vcap.services.mongo.credentials.uri:mongodb://127.0.0.1:27017}/blogposts
-
       
 security:
   oauth2:
@@ -63,9 +63,7 @@ spring:
     hostname: my-rabbit
     username: test
     password: password
-  data:
-    mongodb:
-      uri: mongodb://my-mongo:27017/blogposts
+
 
 
 eureka:

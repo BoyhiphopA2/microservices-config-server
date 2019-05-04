@@ -3,7 +3,6 @@ info:
     name: Circuit Breaker
     description: Hystix - Circuit Breaker - Fault tolerance
 
-    
 management:
   security: 
     enabled: false

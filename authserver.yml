@@ -3,6 +3,10 @@
 server:
   port: ${PORT:9999}
   contextPath: /uaa
+
+management:
+  security: 
+    enabled: false
   
 logging:
   level:
@@ -13,8 +17,3 @@ logging:
 security:
   user:
     password: password
-
-    
-management:
-  security: 
-    enabled: false
